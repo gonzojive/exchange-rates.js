@@ -3,18 +3,27 @@ var http = require('http');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
-var dom = require('xmldom').DOMParser;
-var xpath = require('xpath');
 var jsdom  = require('jsdom');
 var jquery = fs.readFileSync("./jquery-1.11.0.js").toString();
 
 // Issues a request for an exchange rate from one currency to another.
+//
+// Example:
+//     new xe.ExchangeRateRequest({
+//         from: "KES",
+//         to: "USD",
+//         source: "xe.com"
+//       }, function(rate) {
+//         console.log("1 KES (Kenyan shilling) = " + rate + " USD (US dollar)");
+//       });
 //
 // @param {Object} options A dictionary with the following properties:
 //  - from: The currency code of the source currency.
 //  - to: The currency code of the destination currency.
 //  - source: The source of the exchange rate information.  Possiblities:
 //    - 'xe.com'
+// @param {Function} callback A function called with the exchange rate (a scalar
+//   value) upon success
 function ExchangeRateRequest(options, callback) {
   if (options.source !== 'xe.com') {
     throw "Invalid source of information.";
@@ -83,10 +92,4 @@ function parseXeResponse(response, data, from, to, callback, onError) {
   });
 }
 
-new ExchangeRateRequest({
-  from: "KES",
-  to: "USD",
-  source: "xe.com"
-}, function(rate) {
-  console.log("rate: " + rate);
-});
+module.exports.ExchangeRateRequest = ExchangeRateRequest;

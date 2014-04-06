@@ -1,0 +1,26 @@
+{
+  "name": "exchange-rates.js",
+  "version": "0.0.1",
+  "description": "A library for getting exchange rates from the internet.",
+  "keywords": [
+    "xe",
+    "exchange rate"
+  ],
+  "bugs": {
+    "url": "https://github.com/gonzojive/exchange-rates.js/issues",
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/gonzojive/exchange-rates.js/blob/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gonzojive/exchange-rates.js.git"
+  },
+  "dependencies": {
+    "jsdom": ">= 0.10.5",
+  },
+  "main": "./jquery-1.11.0.js",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/gonzojive/exchange-rates.js"
+}
